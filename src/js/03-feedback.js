@@ -27,6 +27,12 @@ getLocalData();
 feedbackForm.addEventListener('submit', submitData);
 function submitData(e) {
   e.preventDefault();
+
+   if (email.value.trim() === '' || message.value.trim() === '') {
+    alert('Please fill in both email and message fields.');
+    return;
+  }
+
   this.reset();
   console.log(localStorage.getItem('feedback-form-state'));
   localStorage.removeItem('feedback-form-state');
